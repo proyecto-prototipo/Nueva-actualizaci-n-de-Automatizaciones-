@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fst-blue: #0056b3;
+      --fst-dark: #1a1a1a;
+      --fst-light: #f4f7f9;
+      --accent: #ff4d4d;
+      --success: #28a745;
+      --fst-skyblue: #4d6575;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--fst-light);
+      color: var(--fst-dark);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 8px solid var(--fst-blue);
+      padding: 20px 30px;
+    }
+
+    .logo {
+      height: 100px;
+      width: auto;
+    }
+
+    .welcome-section {
+      text-align: right;
+    }
+
+    .welcome-section h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--fst-blue);
+    }
+
+    .client-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      display: block;
+      color: var(--fst-dark);
+    }
+
+    .igv-notice {
+      color: var(--accent);
+      font-weight: 800;
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+
+    .experience-box {
+      background: #fffbeb;
+      border-left: 5px solid #f59e0b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .slider-container {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .slider {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 15s infinite ease-in-out;
+    }
+
+    .slide {
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @keyframes slide {
+
+      0%,
+      30% {
+        transform: translateX(0);
+      }
+
+      33%,
+      63% {
+        transform: translateX(-33.33%);
+      }
+
+      66%,
+      96% {
+        transform: translateX(-66.66%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulse-fst {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 10px 20px rgba(179, 0, 0, 0.3);
+      }
+
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 15px 40px rgba(255, 77, 77, 0.6);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 10px 20px rgba(179, 0, 0, 0.3);
+      }
+    }
+
+    .bonus-banner {
+      background: linear-gradient(135deg, #ff4d4d, #b30000);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      border-radius: 20px;
+      margin: 25px 0 10px;
+      animation: pulse-fst 2.5s infinite ease-in-out;
+    }
+
+    .bonus-banner h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .payment-notice {
+      text-align: center;
+      font-weight: 700;
+      color: #0369a1;
+      background-color: #f0f9ff;
+      border: 1px dashed #0ea5e9;
+      padding: 12px;
+      border-radius: 12px;
+      margin: 0 auto 25px;
+      max-width: 90%;
+      font-size: 0.95rem;
+    }
+
+    .service-title {
+      background: var(--fst-blue);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      font-weight: 800;
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .value {
+      font-size: 1rem;
+      color: var(--fst-dark);
+      font-weight: 600;
+    }
+
+    .price-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      border: 2px solid #e2e8f0;
+    }
+
+    .promo {
+      background: #f0fff4;
+      border: 2px dashed var(--success);
+    }
+
+    .price-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--fst-blue);
+      display: block;
+    }
+
+    .installments-section {
+      background: #f0f7ff;
+      border: 2px solid var(--fst-blue);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .installments-header {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--fst-blue);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .discount-tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border: 1px solid #bfdbfe;
+      margin-bottom: 15px;
+    }
+
+    .installments-msg {
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* DISEÑO INNOVADOR PARA CUOTAS */
+    .installments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .installment-card {
+      background: white;
+      border: none;
+      border-top: 4px solid var(--fst-blue);
+      padding: 20px 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .installment-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .inst-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--fst-blue);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .inst-price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--fst-dark);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .inst-desc {
+      font-size: 0.75rem;
+      line-height: 1.3;
+      color: #64748b;
+      font-weight: 500;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+      min-height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-fee {
+      background: #f1f5f9;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .requirements-card {
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #fffaf5;
+      border: 1px solid #fce4d6;
+    }
+
+    .requirements-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #a04000;
+    }
+
+    .requirements-text {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #555;
+      margin: 0;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 30px 0;
+    }
+
+    .btn {
+      padding: 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      text-align: center;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+      filter: brightness(1.1);
+    }
+
+    .btn-wa {
+      background: var(--success);
+      font-size: 1.1rem;
+    }
+
+    .btn-yt {
+      background: #cd201f;
+    }
+
+    .btn-sec {
+      background: var(--fst-dark);
+    }
+
+    .btn-pdf {
+      background: var(--fst-skyblue);
+    }
+
+    @media print {
+
+      #btn-download-pdf,
+      .bonus-banner {
+        animation: none !important;
+        box-shadow: none !important;
+      }
+
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .container {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+      }
+    }
+
+    /* Estilo actualizado para centrar el botón */
+    .btn-pago-link {
+      display: flex;
+      /* Cambiado para permitir centrado */
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #009ee3;
+      color: white !important;
+      text-decoration: none !important;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+
+      /* ESTO ES LO QUE LO CENTRA */
+      margin: 15px auto;
+      /* El 'auto' a los lados hace la magia */
+      width: fit-content;
+      /* Ajusta el ancho al texto para que no sea gigante */
+
+      transition: 0.3s;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-pago-link:hover {
+      background-color: #007bb1;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body>
+  <?
+    var servicioStr = String(data.tipo_servicio || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    var isAuto = servicioStr.includes('automatizacion'); 
+    var isImpl = servicioStr.includes('implementacion'); 
+  ?>
+
+  <div class="container" id="content">
+    <div class="card header-flex">
+      <img src="https://drive.google.com/thumbnail?id=15hqvqsKoW_twIaOoVzfsj7xWlikYqKUj&sz=w500" class="logo">
+      <div class="welcome-section">
+        <h1>BIENVENIDO/A AL TARIFARIO DE SERVICIOS 🤗</h1>
+        <span class="client-name"><?= data.nombre_cliente ?></span>
+      </div>
+    </div>
+
+    <p class="igv-notice">Precios indicados incluyen IGV </p>
+
+    <div class="experience-box">
+      💡 <strong>En FST Negocios, </strong> somos especialistas en convertir oportunidades de financiamiento estatal en
+      competitividad empresarial. Tenemos amplia experiencia gestionando programas como Digitalización Empresarial,
+      Mipymes de Calidad y Mipymes Digitales. Nuestro equipo multidisciplinario te ayuda a identificar las brechas de tu
+      empresa, postular con éxito a fondos gratuitos y ejecutar proyectos de alto impacto. ¡Hacemos que el Estado
+      invierta en tu innovación!
+    </div>
+
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide"
+          style="background-image: url('https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&w=1000&q=80')">
+        </div>
+        <div class="slide"
+          style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80')">
+        </div>
+        <div class="slide"
+          style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80')">
+        </div>
+      </div>
+    </div>
+
+    <div class="service-title">
+      <?= data.tipo_servicio ?>
+    </div>
+
+    <div class="main-grid">
+      <div class="card">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">ID Cotización</span><span class="value"><?= data.id_cotizacion ?></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Empresa</span><span class="value"><?= data.empresa_cliente ?></span>
+          </div>
+          <div class="info-item"><span class="label">Factura</span><span class="value"><?= data['c/s_factura'] ?></span>
+          </div>
+          <div class="info-item">
+            <span class="label">RUC / DNI</span><span class="value"><?= data.ruc_dni_cliente ?></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Atención</span><span class="value"><?= data.contacto_cargo ?></span>
+          </div>
+          <div class="info-item">
+            <span class="label">WhatsApp</span><span class="value"><?= data.contacto_whatsapp ?></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Correo</span><span class="value"><?= data.correo_electronico ?></span>
+          </div>
+        </div>
+        <div style="margin-top:20px;"><span class="label">Descripción del Servicio</span>
+          <p style="line-height:1.6; color:#4a5568;">
+            <?= data.descripcion ?>
+          </p>
+        </div>
+        <div style="background:#f8fafc; padding:15px; border-radius:10px; margin-top:15px; font-size:0.9rem;">
+          📅 <strong>Postulaciones:</strong>
+          <?= isAuto ? 'No aplica' : data.inicio_postulaciones + ' al ' + data.fin_postulaciones ?>
+        </div>
+      </div>
+
+      <div class="bonus-banner">
+        <? if (isAuto) { ?>
+        <h2 style="font-size: 1.15rem; font-weight: 600;">Se toma como referencia para la automatización, el precio
+          regular por horas trabajadas 🔍 </h2>
+        <? } else if (isImpl) { ?>
+        <h2 style="font-size: 1.15rem; font-weight: 600;">Se toma como referencia para CRM Y ERP, el precio regular por
+          horas trabajadas 🔍 </h2>
+        <? } else { ?>
+        <h2>🔥🔥Fondos Gratuitos hasta
+          <?= data.bono ?>🔥🔥
+        </h2>
+        <? } ?>
+      </div>
+
+      <div class="payment-notice">👀 Recuerda: Esta propuesta y sus beneficios aplican exclusivamente para pagos vía
+        transferencia bancaria. 👀</div>
+
+      <div class="price-container">
+        <div class="card price-card standard">
+          <span class="label">Inversión Regular</span>
+          <span class="price-val" style="text-decoration: line-through;"><?= data.precios ?></span>
+          <span style="font-size:0.8rem; color:#64748b;">(Incluye IGV / Admite hasta 12 cuotas sin intereses pagando con tarjeta de crédito)</span>
+        </div>
+        <div class="card price-card promo">
+          <span class="label" style="color:var(--success)">💰 Oferta Pago Anticipado</span>
+          <div
+            style="display:inline-block; margin:8px 0 12px; padding:6px 18px; background:#dcfce7; color:#15803d; font-size:1.35rem; font-weight:900; border-radius:999px; border:2px dashed #22c55e;">
+            🔥
+            <?= data['%'] ?> DE DESCUENTO
+          </div>
+          <span class="price-val" style="color:var(--success)"> <?= data.descuento ?></span>
+          <span style="font-size:0.8rem; font-weight:bold;">(Monto incluye el IGV)</span>
+        </div>
+      </div>
+
+      <div class="installments-section">
+        <span class="installments-header"> 💳 Oferta Pago en Cuotas</span>
+        <div class="discount-tag">Descuento equivalente a
+          <?= data['%_cuotas'] ?>
+        </div>
+        <span class="price-val" style="color:var(--success)"><?= data.descuento_cuotas ?></span>
+        <span style="font-size:0.85rem; font-weight:800; color:#64748b; display:block; margin-bottom:15px;">(Monto incluye el IGV)</span>
+        <p class="installments-msg">"Sabemos que cada paso cuenta. Por eso, te brindamos la flexibilidad que tu empresa
+          necesita para crecer sin límites."
+          “Recuerda que las cuotas deben ser canceladas dentro del período de vigencia del programa.”</p>
+
+        <div class="installments-grid">
+          <? 
+            var limiteCuotas = parseInt(data.num_cuotas) || 0;
+            for (var i = 1; i <= limiteCuotas; i++) { 
+              var monto = data['cuota_' + i] || data['cuota' + i] || data['cuota ' + i];
+              if (!monto) {
+                var llaves = Object.keys(data);
+                for (var k = 0; k < llaves.length; k++) {
+                  if (llaves[k].replace(/[^a-z0-9]/g, '') === 'cuota' + i) {
+                    monto = data[llaves[k]];
+                    break;
+                  }
+                }
+              }
+
+              if (monto && monto !== "S/. 0.00" && String(monto).trim() !== "0") {
+                // LÓGICA DINÁMICA DE TEXTOS
+                var textoDesc = "";
+                if (i === 1) {
+                  textoDesc = "Primer pago al inicio";
+                } else if (i === limiteCuotas) {
+                  textoDesc = "Último pago al 100 % del avance del proyecto y antes del envío del proyecto de postulación";
+                } else if (i === limiteCuotas - 1) {
+                  textoDesc = "Pago al 75% de avance";
+                } else {
+                  if (limiteCuotas === 4) { textoDesc = "Segundo pago al 25% de avance"; }
+                  if (limiteCuotas === 5) {
+                    if (i === 2) textoDesc = "Segundo pago al 25% de avance";
+                    if (i === 3) textoDesc = "Tercer pago al 50% de avance";
+                  }
+                  if (limiteCuotas === 6) {
+                    if (i === 2) textoDesc = "Segundo pago al 25% de avance";
+                    if (i === 3) textoDesc = "Tercer pago al 35% de avance";
+                    if (i === 4) textoDesc = "Cuarto pago al 50% de avance";
+                  }
+                }
+          ?>
+          <div class="installment-card">
+            <span class="inst-title">Cuota <?= i ?></span>
+            <span class="inst-price"><?= monto ?></span>
+            <div class="inst-desc">
+              <?= textoDesc ?>
+            </div>
+          </div>
+          <? 
+              } 
+            } 
+          ?>
+        </div>
+      </div>
+
+      <div class="success-fee">🚀 HONORARIO DE ÉXITO: En caso de ganar los fondos se debe pagar además el 10% de los
+        fondos ganados.</div>
+
+      <? if (data.requisitos && String(data.requisitos).trim() !== "") { ?>
+      <div class="requirements-card">
+        <div class="requirements-title">📌 Requisitos / ¿A quién va dirigido?</div>
+        <p class="requirements-text">
+          <?= data.requisitos ?>
+        </p>
+      </div>
+      <? } ?>
+    </div>
+
+    <div class="btn-group">
+      <a href="https://wa.me/51949638568?text=Hola%20Freddy,%20soy%20<?= data.nombre_cliente ?>.%20Deseo%20más%20información%20de%20la%20cotización%20<?= data.id_cotizacion ?>"
+        class="btn btn-wa">📲 (Clic para WhatsApp) Hablar con un Asesor 🔗 </a>
+      <a href="https://www.youtube.com/playlist?list=PLfqikFL7EsZDHi1xsqM6hVje3N9uiiV44" target="_blank"
+        class="btn btn-yt">🎥 (Ver en YouTube) Testimonios de Clientes 🔗 </a>
+      <a href="https://www.gob.pe/29832-fst-negocios" target="_blank" class="btn btn-sec"
+        style="background: #0056b3;">🏛️ (Ver link) Certificaciones y acreditaciones 🔗 </a>
+      <a href="https://www.gob.pe/institucion/produce/normas-legales/7490544-00011-2025-produce-dgitdf" target="_blank"
+        class="btn btn-sec" style="background: #3b83bd;">🪙 (Ver link) Resolución Ministerial – PRODUCE 🔗</a>
+      <button onclick="generarPDF()" class="btn btn-pdf" id="btn-download-pdf">📄 Descargar Cotización en PDF</button>
+    </div>
+
+    <div class="card bank-footer">
+      <span class="bank-title">🏦 CUENTAS PARA DEPÓSITOS</span>
+      <p><strong>CON IGV (Freddy Silva Tuesta):</strong> BBVA: 0011-0876-0200238285 | BCP: 19300392454017 | SCOTIABANK:
+        1270478694 | INTERBANK: 1653038936501 | Yape: 949638568</p>
+      <p>Si vas a transferir desde otro banco: CCI 00316501303893650181 (Interbank)</p>
+      <p><strong>CON IGV (FINANZAS STARTUPS TECNOLOGÍA Y NEGOCIOS S.A.C | RUC 20522161501):</strong> Interbank Cta Cte:
+        2003002609701 | CCI: 00320000300260970131</p>
+      <p style="font-size:0.7rem; color:#94a3b8; text-align:center; margin-top:20px;">Emitido el:
+        <?= data.fecha_generacion ?>
+      </p>
+      <a href="https://mpago.la/2ckxvpw" target="_blank" class="btn-pago-link">
+        <span>💳 Pagar con Tarjeta / Mercado Pago</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14m-7-7 7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function generarPDF() {
+      const originalTitle = document.title;
+      document.title = "FST_Cotizacion_" + "<?= data.nombre_cliente ?>".replace(/\s+/g, '_');
+      window.print();
+      document.title = originalTitle;
+    }
+  </script>
+</body>
+
+</html>
